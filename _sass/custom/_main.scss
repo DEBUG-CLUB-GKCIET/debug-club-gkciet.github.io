@@ -283,15 +283,126 @@ a {
 .btn-outline-light {
     background: transparent;
     border: 2px solid rgba(0, 229, 153, 0.3);
-    color: #00E599;
+    color: #00E599 !important;
     backdrop-filter: blur(8px);
+
+    i, .fas, .fab {
+        color: #00E599 !important;
+    }
 
     &:hover {
         background-color: rgba(0, 229, 153, 0.1);
         border-color: rgba(0, 229, 153, 0.6);
-        color: #00ffaa;
+        color: #00ffaa !important;
         transform: translateY(-2px);
         box-shadow: $box-shadow-sm, 0 0 20px rgba(0, 229, 153, 0.3);
+
+        i, .fas, .fab {
+            color: #00ffaa !important;
+        }
+    }
+}
+
+/* Dark theme - Theme Toggle Button */
+body.dark-theme #theme-toggle {
+    color: #00E599 !important;
+    background: rgba(0, 229, 153, 0.08);
+    border: 2px solid rgba(0, 229, 153, 0.2);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+
+    i, .fas, .fab {
+        color: #00E599 !important;
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .theme-text {
+        color: #00E599 !important;
+        font-weight: 500;
+    }
+
+    &:hover {
+        color: #00ffaa !important;
+        background: rgba(0, 229, 153, 0.15);
+        border-color: rgba(0, 229, 153, 0.5);
+        box-shadow: 0 4px 12px rgba(0, 229, 153, 0.2);
+
+        i, .fas, .fab {
+            color: #00ffaa !important;
+            transform: rotate(30deg);
+        }
+
+        .theme-text {
+            color: #00ffaa !important;
+        }
+    }
+
+    &:active {
+        transform: scale(0.92);
+    }
+
+    &:focus {
+        outline: 2px solid rgba(0, 229, 153, 0.6);
+        outline-offset: 2px;
+    }
+}
+
+/* Ensure proper styling for all buttons in dark theme */
+body.dark-theme {
+    .btn-outline-light {
+        color: #00E599 !important;
+        border-color: rgba(0, 229, 153, 0.3) !important;
+        background: transparent;
+        
+        i, .fas, .fab {
+            color: #00E599 !important;
+        }
+
+        &:hover {
+            background-color: rgba(0, 229, 153, 0.1) !important;
+            border-color: rgba(0, 229, 153, 0.6) !important;
+            color: #00ffaa !important;
+
+            i, .fas, .fab {
+                color: #00ffaa !important;
+            }
+        }
+    }
+
+    /* Ensure nav links are properly styled in dark theme */
+    .nav-link {
+        color: rgba(0, 229, 153, 0.6) !important;
+
+        &.active {
+            color: #00E599 !important;
+        }
+
+        &:hover {
+            color: #00E599 !important;
+        }
+    }
+
+    /* Navbar styling for dark theme */
+    .navbar {
+        background-color: rgba(3, 3, 5, 0.95) !important;
+        border-bottom: 1px solid rgba(0, 229, 153, 0.1) !important;
+
+        .navbar-brand {
+            color: #00E599 !important;
+        }
+    }
+
+    /* Ensure text elements use proper colors */
+    .text-white, .text-light {
+        color: #FFFFFF !important;
+    }
+
+    label, .form-label {
+        color: #B0B0C0 !important;
     }
 }
 
@@ -1632,4 +1743,53 @@ img {
     background: linear-gradient(to right, rgba(255, 255, 255, 0.05) 8%, rgba(255, 255, 255, 0.1) 18%, rgba(255, 255, 255, 0.05) 33%);
     background-size: 1000px 100%;
     animation: shimmer 2s infinite linear;
+}
+
+/* ========================================= */
+/* ENSURE TEXT VISIBILITY ACROSS ALL THEMES */
+/* ========================================= */
+
+/* Default text colors for dark theme cards */
+.card-clone {
+    h3, h4, h5 {
+        color: #FFFFFF;
+    }
+
+    p {
+        color: $text-secondary;
+    }
+
+    .text-secondary {
+        color: $text-secondary !important;
+    }
+
+    .text-muted {
+        color: $text-muted !important;
+    }
+}
+
+/* Glass card defaults for dark theme */
+.glass-card {
+    background: rgba(10, 10, 15, 0.6);
+    border-color: rgba(255, 255, 255, 0.1);
+
+    .text-white {
+        color: #FFFFFF !important;
+    }
+
+    .text-muted {
+        color: $text-muted !important;
+    }
+
+    .font-monospace {
+        color: $text-secondary !important;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        color: #FFFFFF !important;
+    }
+
+    p {
+        color: $text-secondary !important;
+    }
 }
