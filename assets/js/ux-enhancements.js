@@ -117,15 +117,8 @@
     }, observerOptions);
     
     // Observe elements with fade-in classes
-    const fadeElements = document.querySelectorAll('.fade-in-up, .fade-in, .card-clone');
-    fadeElements.forEach(el => {
+    document.querySelectorAll('.fade-in-up, .fade-in, .card-clone').forEach(el => {
         observer.observe(el);
-        
-        // Trigger immediately for elements already in viewport on page load
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-            el.classList.add('is-visible');
-        }
     });
 
     // ============================================================================
@@ -161,9 +154,6 @@
     const navbarCollapse = document.querySelector('.navbar-collapse');
     
     if (navbarToggler && navbarCollapse) {
-        // Ensure body overflow is normal on page load
-        document.body.style.overflow = '';
-        
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
             const isClickInside = navbarCollapse.contains(e.target) || 
@@ -175,7 +165,7 @@
         });
         
         // Close menu when clicking a link
-        navbarCollapse.querySelectorAll('.nav-link, .btn, a').forEach(link => {
+        navbarCollapse.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 if (navbarCollapse.classList.contains('show')) {
                     navbarToggler.click();
@@ -189,7 +179,7 @@
                 if (navbarCollapse.classList.contains('show')) {
                     document.body.style.overflow = 'hidden';
                 } else {
-                    document.body.style.overflow = 'auto';
+                    document.body.style.overflow = '';
                 }
             }, 50);
         });
